@@ -25,7 +25,11 @@
           <button id="hide">Hide, then Show</button>
           <button id="showInactive">Hide, then Show Inactive</button>
           <button id="drawAttention">Draw Attention</button>
-          <button id="clearAttention">Clear Attention</button>
+          <button id="clearAttention">Clear Attention</button><br>
+          <button id="showTrue">show(true) in 1s</button>
+          <button id="showFalse">show(false) in 1s</button>
+          <button id="appFocus">appWindow.focus() in 1s</button>
+          <button id="webFocus">window.focus() in 1s</button>
         </div>
         <div class="columns">
           <div class="section edit-left">
@@ -38,6 +42,10 @@
               <tr>
                 <td>Always On Top:</td>
                 <td><input type="checkbox" id="currentWindowOnTop" /></td>
+              </tr>
+              <tr>
+                <td>On All Workspaces:</td>
+                <td><input type="checkbox" id="currentOnAllWorkspaces" /></td>
               </tr>
             </table>
           </div>

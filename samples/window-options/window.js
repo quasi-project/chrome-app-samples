@@ -163,6 +163,31 @@ function initEditWindowTab() {
     chrome.app.window.current().clearAttention();
   });
 
+  $('#showTrue').button().click(function() {
+    setTimeout(function() {
+      chrome.app.window.current().show(true);
+    }, 1000);
+  });
+
+  $('#showFalse').button().click(function() {
+    setTimeout(function() {
+      chrome.app.window.current().show(false);
+    }, 1000);
+  });
+
+  $('#appFocus').button().click(function() {
+    setTimeout(function() {
+      chrome.app.window.current().focus();
+    }, 1000);
+  });
+
+  $('#webFocus').button().click(function() {
+    setTimeout(function() {
+      document.getElementById("outerWindowMinWidth").focus();
+      window.focus();
+    }, 1000);
+  });
+
   // Initialize the current state.
   var win = chrome.app.window.current();
   $('#currentWindowId').val(win.id);
@@ -171,6 +196,14 @@ function initEditWindowTab() {
     .change(function() {
       chrome.app.window.current().setAlwaysOnTop(
         $('#currentWindowOnTop').is(':checked'));
+    });
+
+  $('#currentOnAllWorkspaces')
+    .attr('checked', win.isAlwaysOnTop())
+    .change(function() {
+      console.log('set');
+      chrome.app.window.current().setVisibleOnAllWorkspaces(
+        $('#currentOnAllWorkspaces').is(':checked'));
     });
 
   // Update window state display on bounds change, but also on regular interval
